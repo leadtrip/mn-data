@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: mnData
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    dialect: POSTGRES
+netty:
+  default:
+    allocator:
+      max-order: 3
+flyway:
+  datasources:
+    default:
+      enabled: true
