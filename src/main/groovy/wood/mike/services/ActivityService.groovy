@@ -21,4 +21,8 @@ class ActivityService {
     List<Activity> allForLocation( String location ) {
         activityRepository.findAllByLocationName( location )
     }
+
+    Activity create( Activity activity ) {
+        activityRepository.save(activity)
+    }
 }

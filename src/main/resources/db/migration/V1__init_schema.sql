@@ -33,3 +33,14 @@ create table activity_equipment(
    foreign key (equipment_id)
    references equipment(id)
 );
+
+create table heart_rate(
+   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+   minute integer not null,
+   avg_hr integer not null,
+   activity_id UUID not null,
+
+   CONSTRAINT fk_hr_activity
+   FOREIGN KEY (activity_id)
+   REFERENCES activity (id)
+)

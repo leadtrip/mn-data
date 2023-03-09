@@ -11,9 +11,11 @@ interface ActivityRepository extends CrudRepository<Activity, UUID>{
 
     @Join(value = 'location', type = Join.Type.LEFT_FETCH)
     @Join(value = 'equipment', type = Join.Type.LEFT_FETCH)
+    @Join(value = 'heartRates', type = Join.Type.LEFT_FETCH)
     List<Activity> findAll()
 
     @Join(value = 'location', type = Join.Type.LEFT_FETCH)
     @Join(value = 'equipment', type = Join.Type.LEFT_FETCH)
+    @Join(value = 'heartRates', type = Join.Type.LEFT_FETCH)
     List<Activity> findAllByLocationName( String loc )
 }
