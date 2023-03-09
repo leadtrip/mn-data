@@ -37,6 +37,7 @@ class ActivityControllerSpec extends Specification{
             response.status == HttpStatus.OK
             Activity persistedActivity = activityRepository.findByName(activity.name)
             persistedActivity.id
+            persistedActivity.dateCreated
             persistedActivity.location.id
             persistedActivity.equipment*.id
     }

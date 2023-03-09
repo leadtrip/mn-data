@@ -8,6 +8,7 @@ create table if not exists location (
 CREATE TABLE IF NOT EXISTS activity (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name varchar(128) not null,
+    date_created timestamp not null,
     location_id UUID not null,
 
     CONSTRAINT fk_activity_location
