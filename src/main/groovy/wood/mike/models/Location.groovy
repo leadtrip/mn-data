@@ -14,9 +14,10 @@ class Location {
 
     @Id
     @AutoPopulated
+    @JsonIgnore
     UUID id
 
+    //@JsonValue  // this works in that only the location name is output in the JSON but it doesn't play well with tests
     @Column
-    @JsonValue
     String name
 }

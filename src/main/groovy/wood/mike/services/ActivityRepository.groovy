@@ -6,16 +6,15 @@ import io.micronaut.data.model.query.builder.sql.Dialect
 import io.micronaut.data.repository.CrudRepository
 import wood.mike.models.Activity
 
+@Join(value = 'location', type = Join.Type.LEFT_FETCH)
+@Join(value = 'equipment', type = Join.Type.LEFT_FETCH)
+@Join(value = 'heartRates', type = Join.Type.LEFT_FETCH)
 @JdbcRepository(dialect = Dialect.POSTGRES)
 interface ActivityRepository extends CrudRepository<Activity, UUID>{
 
-    @Join(value = 'location', type = Join.Type.LEFT_FETCH)
-    @Join(value = 'equipment', type = Join.Type.LEFT_FETCH)
-    @Join(value = 'heartRates', type = Join.Type.LEFT_FETCH)
     List<Activity> findAll()
 
-    @Join(value = 'location', type = Join.Type.LEFT_FETCH)
-    @Join(value = 'equipment', type = Join.Type.LEFT_FETCH)
-    @Join(value = 'heartRates', type = Join.Type.LEFT_FETCH)
     List<Activity> findAllByLocationName( String loc )
+
+    Activity findByName(String name)
 }
